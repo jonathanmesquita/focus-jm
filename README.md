@@ -41,7 +41,7 @@ Then open `http://localhost:8000`.
 
 ## Tests
 
-The timer logic lives in `timer.js`, with no DOM, and is tested with Node's built-in runner:
+The timer logic lives in `assets/js/timer.js`, with no DOM, and is tested with Node's built-in runner:
 
 ```bash
 npm test
@@ -52,9 +52,17 @@ npm test
 ```text
 focus-jm/
 ├── index.html
-├── style.css
-├── script.js        # screen, sound, localStorage
-├── timer.js         # timer rules (pure functions)
+├── favicon.ico              # pixel-art tomato, 16–256 px (root: browsers ask for /favicon.ico)
+├── manifest.webmanifest     # name and icons for "add to home screen"
+├── assets/
+│   ├── css/style.css
+│   ├── js/
+│   │   ├── script.js        # screen, sound, localStorage
+│   │   └── timer.js         # timer rules (pure functions, no DOM)
+│   └── icons/
+│       ├── icon-192.png
+│       ├── icon-512.png
+│       └── apple-touch-icon.png   # 180 px, opaque, for iOS
 └── tests/timer.test.js
 ```
 

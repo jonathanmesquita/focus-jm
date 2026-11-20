@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   DURACAO, novoTimer, rodando, iniciar, pausar, reiniciar,
   restante, avancar, formatar, hoje, contadorDoDia
-} from "../timer.js";
+} from "../assets/js/timer.js";
 
 const MIN = 60 * 1000;
 

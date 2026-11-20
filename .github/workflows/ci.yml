@@ -18,6 +18,6 @@ jobs:
         with:
           node-version: 22
       - name: Syntax check
-        run: for f in *.js tests/*.js; do node --check "$f"; done
+        run: for f in assets/js/*.js tests/*.js; do node --check "$f"; done
       - name: Tests
         run: npm test
