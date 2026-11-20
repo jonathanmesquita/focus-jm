@@ -1,0 +1,227 @@
+/*
+ * Mesma paleta do jm.dev.br, com os tons que passam no contraste (medido sobre
+ * o fundo #F2EEE6): tinta 14,67 · terracota de texto 5,05 · oliva 4,77 ·
+ * cinza 4,87. A terracota cheia (#A66A4C) é só preenchimento.
+ */
+
+:root {
+  --fundo: #f2eee6;
+  --tinta: #1b1d1a;
+  --terracota: #a66a4c;
+  --terracota-texto: #8f573c;
+  --oliva: #5f6d55;
+  --areia: #d8cfc2;
+  --cinza: #626965;
+
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fonte-numero: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1rem;
+
+  background: var(--fundo);
+  color: var(--tinta);
+
+  font-family: var(--fonte);
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.painel {
+  width: min(100%, 26rem);
+
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+
+  text-align: center;
+}
+
+.marca {
+  margin: 0 0 1.5rem;
+
+  padding-bottom: 0.75rem;
+  width: 100%;
+
+  border-bottom: 1px solid var(--areia);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+}
+
+.fase {
+  margin: 0;
+
+  font-family: var(--fonte-numero);
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  letter-spacing: 0.32em;
+
+  color: var(--terracota-texto);
+}
+
+.painel[data-fase="pausa"] .fase {
+  color: var(--oliva);
+}
+
+.tempo {
+  font-family: var(--fonte-numero);
+  font-size: clamp(4.5rem, 22vw, 7rem);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.lema {
+  margin: 0 0 1rem;
+
+  color: var(--cinza);
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.botao {
+  min-width: 7.5rem;
+  min-height: 48px;
+
+  padding: 0.7rem 1.1rem;
+
+  border: 1px solid var(--tinta);
+  border-radius: 999px;
+
+  background: transparent;
+  color: var(--tinta);
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+}
+
+.botao-principal {
+  background: var(--tinta);
+  color: var(--fundo);
+}
+
+.botao:disabled {
+  border-color: var(--areia);
+
+  color: var(--cinza);
+  background: transparent;
+
+  cursor: not-allowed;
+}
+
+.botao:focus-visible {
+  outline: 3px solid var(--terracota);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .botao:not(:disabled):hover {
+    background: var(--areia);
+    color: var(--tinta);
+  }
+
+  .botao-principal:not(:disabled):hover {
+    background: var(--terracota-texto);
+    color: var(--fundo);
+  }
+}
+
+/* Celular: os três botões numa linha só, dividindo a largura. */
+@media (max-width: 420px) {
+  .controles {
+    width: 100%;
+
+    flex-wrap: nowrap;
+  }
+
+  .botao {
+    flex: 1;
+
+    min-width: 0;
+
+    padding-inline: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .botao {
+    padding-inline: 0.25rem;
+
+    font-size: 0.85rem;
+  }
+}
+
+.contador {
+  margin: 1.5rem 0 0;
+
+  padding-top: 0.75rem;
+  width: 100%;
+
+  border-top: 1px solid var(--areia);
+
+  font-family: var(--fonte-numero);
+  font-size: 0.85rem;
+
+  color: var(--cinza);
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+  border: 0;
+}
+
+.sem-js {
+  color: var(--terracota-texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao {
+    transition: none;
+  }
+}
