@@ -55,7 +55,11 @@ focus-jm/
 ├── style.css
 ├── script.js        # screen, sound, localStorage
 ├── timer.js         # timer rules (pure functions)
-└── tests/timer.test.js
+├── tests/timer.test.js
+├── favicon-pomodoro.ico                 # pixel-art tomato, 16–256 px
+├── focus-jm-pomodoro-192.png / -512.png # app icons (manifest)
+├── apple-touch-icon.png                 # 180 px, opaque, for iOS home screen
+└── manifest.webmanifest
 ```
 
 ## Stack
