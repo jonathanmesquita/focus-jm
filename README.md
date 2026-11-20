@@ -69,3 +69,14 @@ focus-jm/
 ## Stack
 
 HTML · CSS · JavaScript · localStorage · Vercel
+
+## Segurança
+
+`vercel.json` publica os cabeçalhos de segurança. A política de conteúdo (CSP) só deixa
+carregar script, estilo, imagem e manifest do próprio site, sem script dentro do HTML e sem
+conexão externa. Também `nosniff`, `Referrer-Policy`, `Permissions-Policy` e HSTS.
+
+**De propósito, não há `frame-ancestors` nem `X-Frame-Options`:** o Focus JM é feito para
+ser aberto dentro do Notion como embed, e esses dois cabeçalhos impediriam isso. O risco de
+deixar a página ser emoldurada é baixo aqui: não há login, dado sensível nem ação que um
+clique enganado possa disparar.

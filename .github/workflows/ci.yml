@@ -19,5 +19,7 @@ jobs:
           node-version: 22
       - name: Syntax check
         run: for f in assets/js/*.js tests/*.js; do node --check "$f"; done
+      - name: vercel.json has a CSP without unsafe-inline, unsafe-eval or *
+        run: node -e "const c=require('./vercel.json');const csp=c.headers[0].headers.find(h=>h.key==='Content-Security-Policy');if(!csp||/unsafe-inline|unsafe-eval|\*/.test(csp.value))process.exit(1)"
       - name: Tests
         run: npm test
