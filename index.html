@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus JM — Pomodoro</title>
+  <meta name="description" content="Pomodoro simples: 25 minutos de foco, 5 de pausa. Funciona no navegador e dentro do Notion." />
+  <meta name="theme-color" content="#F2EEE6" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='17' r='12' fill='%23A66A4C'/%3E%3Cpath d='M16 9v8l5 3' stroke='%23F2EEE6' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <main class="painel" data-fase="foco">
+    <h1 class="marca">Focus JM</h1>
+
+    <p class="fase" id="fase">FOCO</p>
+
+    <time class="tempo" id="tempo" datetime="PT25M00S">25:00</time>
+
+    <p class="lema">Uma tarefa de cada vez.</p>
+
+    <div class="controles">
+      <button type="button" class="botao botao-principal" id="iniciar">
+        <span aria-hidden="true">▶</span> Iniciar
+      </button>
+      <button type="button" class="botao" id="pausar" disabled>
+        <span aria-hidden="true">⏸</span> Pausar
+      </button>
+      <button type="button" class="botao" id="reiniciar">
+        <span aria-hidden="true">↻</span> Reiniciar
+      </button>
+    </div>
+
+    <p class="contador" id="contador">0 Pomodoros concluídos hoje</p>
+
+    <p class="visually-hidden" id="aviso" aria-live="polite"></p>
+  </main>
+
+  <noscript>
+    <p class="sem-js">O Focus JM precisa de JavaScript para contar o tempo.</p>
+  </noscript>
+</body>
+</html>
